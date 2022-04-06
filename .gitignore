@@ -1,0 +1,27 @@
+# Compiled files
+*.o
+*.su
+*.elf
+
+# Exclude folders
+**/do_not_commit
+
+# Text files
+*.txt
+
+# Project PDFs
+*.pdf
+
+# Eclipse related files and paths
+**/Debug
+**/Release
+
+*.launch
+#.mxproject
+#.project
+#.cproject
+#**/.settings/
+
+
+/Debug no Op/
+/Debug Op2/

@@ -1,0 +1,952 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "Main",
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "Main_Background",
+            "Width": 480,
+            "Height": 272,
+            "RelativeFilename": "Background_1.png"
+          },
+          {
+            "Type": "Container",
+            "Name": "Button_Panel",
+            "X": 10,
+            "Y": 94,
+            "Width": 460,
+            "Height": 170,
+            "Components": [
+              {
+                "Type": "BoxWithBorder",
+                "Name": "Button_Panel_Background",
+                "Y": 18,
+                "Width": 460,
+                "Height": 153,
+                "Color": {
+                  "Red": 78,
+                  "Green": 137,
+                  "Blue": 174
+                },
+                "BorderColor": {
+                  "Red": 237,
+                  "Green": 102,
+                  "Blue": 99
+                },
+                "BorderSize": 5
+              },
+              {
+                "Type": "Container",
+                "Name": "Voice_Comm_Panel",
+                "X": 5,
+                "Y": 84,
+                "Width": 450,
+                "Height": 82,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "Voice_Comm_Background",
+                    "Width": 450,
+                    "Height": 82,
+                    "Color": {
+                      "Red": 67,
+                      "Green": 101,
+                      "Blue": 139
+                    },
+                    "BorderSize": 2
+                  },
+                  {
+                    "Type": "Container",
+                    "Name": "Voicecomm_Textbox",
+                    "X": 157,
+                    "Width": 137,
+                    "Height": 20,
+                    "Components": [
+                      {
+                        "Type": "BoxWithBorder",
+                        "Name": "Voicecomm_Border",
+                        "X": -1,
+                        "Y": 3,
+                        "Width": 138,
+                        "Height": 17,
+                        "BorderColor": {
+                          "Red": 237,
+                          "Green": 102,
+                          "Blue": 99
+                        },
+                        "BorderSize": 3
+                      },
+                      {
+                        "Type": "TextArea",
+                        "Name": "Voicecomm_Text",
+                        "X": 7,
+                        "Y": 5,
+                        "Width": 122,
+                        "Height": 13,
+                        "TextId": "__SingleUse_2Q8N",
+                        "TextRotation": "0",
+                        "Color": {
+                          "Red": 255,
+                          "Green": 255,
+                          "Blue": 255
+                        },
+                        "AutoSize": true
+                      }
+                    ]
+                  },
+                  {
+                    "Type": "Container",
+                    "Name": "Volume_Textbox",
+                    "X": 143,
+                    "Y": 58,
+                    "Width": 70,
+                    "Height": 16,
+                    "Components": [
+                      {
+                        "Type": "BoxWithBorder",
+                        "Name": "Volume_Text_Border",
+                        "Width": 70,
+                        "Height": 16,
+                        "BorderColor": {
+                          "Red": 237,
+                          "Green": 102,
+                          "Blue": 99
+                        },
+                        "BorderSize": 3
+                      },
+                      {
+                        "Type": "TextProgress",
+                        "Name": "textProgress1",
+                        "X": 3,
+                        "Y": 3,
+                        "Width": 64,
+                        "Height": 10,
+                        "TextId": "__SingleUse_F9M9",
+                        "Color": {
+                          "Red": 255,
+                          "Green": 255,
+                          "Blue": 255
+                        },
+                        "FileNameBackground": "Volume_Background2.png",
+                        "IndicatorPositionWidth": 64,
+                        "IndicatorPositionHeight": 20,
+                        "ProgressRangeMax": 100,
+                        "ProgressInitialValue": 50
+                      }
+                    ]
+                  },
+                  {
+                    "Type": "Container",
+                    "Name": "Toggle_Textbox",
+                    "X": 388,
+                    "Y": 58,
+                    "Width": 39,
+                    "Height": 17,
+                    "Components": [
+                      {
+                        "Type": "BoxWithBorder",
+                        "Name": "Toggle_Text_Border",
+                        "Width": 38,
+                        "Height": 16,
+                        "BorderColor": {
+                          "Red": 237,
+                          "Green": 102,
+                          "Blue": 99
+                        },
+                        "BorderSize": 3
+                      },
+                      {
+                        "Type": "TextArea",
+                        "Name": "Toggle_Text",
+                        "X": 4,
+                        "Y": 3,
+                        "Width": 30,
+                        "Height": 10,
+                        "TextId": "__SingleUse_P64J",
+                        "TextRotation": "0",
+                        "Color": {
+                          "Red": 255,
+                          "Green": 255,
+                          "Blue": 255
+                        },
+                        "AutoSize": true
+                      }
+                    ]
+                  },
+                  {
+                    "Type": "Slider",
+                    "Name": "Volume_Slider",
+                    "X": 8,
+                    "Y": 25,
+                    "Width": 340,
+                    "Height": 30,
+                    "IsHorizontalSlider": true,
+                    "BackgroundUnselected": "Slider_Dark.png",
+                    "BackgroundSelected": "Slider_Light.png",
+                    "Indicator": "Unpressed_Button.png",
+                    "BackgroundX": 2,
+                    "BackgroundY": 9,
+                    "IndicatorMax": 310,
+                    "ValueMax": 100,
+                    "InitValue": 50
+                  },
+                  {
+                    "Type": "ToggleButton",
+                    "Name": "Voice_Toggle_Button",
+                    "X": 372,
+                    "Y": 23,
+                    "Width": 70,
+                    "Height": 30,
+                    "Pressed": "Toggle_Button_Off2.png",
+                    "Released": "Toggle_Button_On2.png"
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "Anomaly_Detection_Panel",
+                "X": 5,
+                "Y": 23,
+                "Width": 450,
+                "Height": 67,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "Anomaly_Detection_Background",
+                    "Width": 450,
+                    "Height": 63,
+                    "Color": {
+                      "Red": 67,
+                      "Green": 101,
+                      "Blue": 139
+                    },
+                    "BorderSize": 2
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "Message_panel",
+            "X": 10,
+            "Y": 8,
+            "Width": 460,
+            "Height": 109,
+            "Components": [
+              {
+                "Type": "BoxWithBorder",
+                "Name": "Button_Panel_Background_1",
+                "Width": 460,
+                "Height": 109,
+                "Color": {
+                  "Red": 78,
+                  "Green": 137,
+                  "Blue": 174
+                },
+                "BorderColor": {
+                  "Red": 237,
+                  "Green": 102,
+                  "Blue": 99
+                },
+                "BorderSize": 5
+              },
+              {
+                "Type": "Container",
+                "Name": "Message_Board_Panel_1",
+                "X": 5,
+                "Y": 4,
+                "Width": 450,
+                "Height": 100,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "MessageBoard_Background_1",
+                    "Width": 450,
+                    "Height": 100,
+                    "Color": {
+                      "Red": 67,
+                      "Green": 101,
+                      "Blue": 139
+                    },
+                    "BorderSize": 2
+                  },
+                  {
+                    "Type": "Container",
+                    "Name": "Message_Board_Textbox_1",
+                    "X": 176,
+                    "Width": 99,
+                    "Height": 20,
+                    "Components": [
+                      {
+                        "Type": "BoxWithBorder",
+                        "Name": "MessageBoard_Border_1_1",
+                        "Y": 3,
+                        "Width": 99,
+                        "Height": 17,
+                        "BorderColor": {
+                          "Red": 237,
+                          "Green": 102,
+                          "Blue": 99
+                        },
+                        "BorderSize": 3
+                      },
+                      {
+                        "Type": "TextArea",
+                        "Name": "MessageBoard_Text_1",
+                        "X": 7,
+                        "Y": 5,
+                        "Width": 85,
+                        "Height": 13,
+                        "TextId": "__SingleUse_0Y28",
+                        "TextRotation": "0",
+                        "Color": {
+                          "Red": 255,
+                          "Green": 255,
+                          "Blue": 255
+                        },
+                        "AutoSize": true
+                      }
+                    ]
+                  },
+                  {
+                    "Type": "Container",
+                    "Name": "VoiceComm_Textbox_1",
+                    "X": 294,
+                    "Width": 114,
+                    "Height": 98,
+                    "Components": [
+                      {
+                        "Type": "BoxWithBorder",
+                        "Name": "VoiceCommMess_Background",
+                        "X": 2,
+                        "Y": 2,
+                        "Width": 112,
+                        "Height": 96,
+                        "Color": {
+                          "Red": 237,
+                          "Green": 102,
+                          "Blue": 99
+                        },
+                        "BorderSize": 3
+                      },
+                      {
+                        "Type": "BoxWithBorder",
+                        "Name": "VoiceCommMess_Background2",
+                        "X": 16,
+                        "Y": 10,
+                        "Width": 84,
+                        "Height": 80,
+                        "BorderColor": {
+                          "Red": 67,
+                          "Green": 101,
+                          "Blue": 139
+                        },
+                        "BorderSize": 3
+                      },
+                      {
+                        "Type": "TextArea",
+                        "Name": "VoiceCommMess_Text_On",
+                        "X": 36,
+                        "Y": 13,
+                        "Width": 42,
+                        "Height": 60,
+                        "TextId": "__SingleUse_LNSV",
+                        "TextRotation": "0",
+                        "Color": {
+                          "Red": 255,
+                          "Green": 255,
+                          "Blue": 255
+                        },
+                        "AutoSize": true
+                      },
+                      {
+                        "Type": "TextArea",
+                        "Name": "VoiceCommMess_Text_Off",
+                        "X": 36,
+                        "Y": 13,
+                        "Width": 42,
+                        "Height": 60,
+                        "Visible": false,
+                        "TextId": "__SingleUse_GO11",
+                        "TextRotation": "0",
+                        "Color": {
+                          "Red": 255,
+                          "Green": 255,
+                          "Blue": 255
+                        },
+                        "AutoSize": true
+                      }
+                    ]
+                  },
+                  {
+                    "Type": "Container",
+                    "Name": "AnomalyWarning_Textbox_1_1",
+                    "X": 42,
+                    "Width": 117,
+                    "Height": 98,
+                    "Components": [
+                      {
+                        "Type": "BoxWithBorder",
+                        "Name": "MessageBoard_Border_1_1_1_2",
+                        "X": 2,
+                        "Y": 2,
+                        "Width": 115,
+                        "Height": 96,
+                        "Color": {
+                          "Red": 237,
+                          "Green": 102,
+                          "Blue": 99
+                        },
+                        "BorderSize": 3
+                      },
+                      {
+                        "Type": "BoxWithBorder",
+                        "Name": "MessageBoard_Border_1_1_1_1_1",
+                        "X": 16,
+                        "Y": 10,
+                        "Width": 89,
+                        "Height": 80,
+                        "BorderColor": {
+                          "Red": 67,
+                          "Green": 101,
+                          "Blue": 139
+                        },
+                        "BorderSize": 3
+                      },
+                      {
+                        "Type": "TextArea",
+                        "Name": "MessageBoard_Message_1",
+                        "X": 29,
+                        "Y": 13,
+                        "Width": 60,
+                        "Height": 75,
+                        "TextId": "__SingleUse_RLM0",
+                        "TextRotation": "0",
+                        "Color": {
+                          "Red": 255,
+                          "Green": 255,
+                          "Blue": 255
+                        },
+                        "AutoSize": true
+                      },
+                      {
+                        "Type": "TextArea",
+                        "Name": "MessageBoard_Message_Muted",
+                        "X": 30,
+                        "Y": 13,
+                        "Width": 60,
+                        "Height": 75,
+                        "Visible": false,
+                        "TextId": "__SingleUse_RFKN",
+                        "TextRotation": "0",
+                        "Color": {
+                          "Red": 255,
+                          "Green": 255,
+                          "Blue": 255
+                        },
+                        "AutoSize": true
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "Alarm_Mute_Indicator_Textbox_1_1",
+            "X": 64,
+            "Y": 117,
+            "Width": 129,
+            "Height": 20,
+            "Components": [
+              {
+                "Type": "BoxWithBorder",
+                "Name": "AnomalyDetection_Border_1_1_1",
+                "Y": 3,
+                "Width": 129,
+                "Height": 17,
+                "BorderColor": {
+                  "Red": 237,
+                  "Green": 102,
+                  "Blue": 99
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "TextArea",
+                "Name": "AnomalyDetection_Text_1_1",
+                "X": 9,
+                "Y": 5,
+                "Width": 111,
+                "Height": 13,
+                "TextId": "__SingleUse_BBOL",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          },
+          {
+            "Type": "Image",
+            "Name": "Disabled_Button2",
+            "X": 92,
+            "Y": 140,
+            "Width": 80,
+            "Height": 32,
+            "RelativeFilename": "Rect_Button_Pressed.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "Disabled_Button1",
+            "X": 309,
+            "Y": 141,
+            "Width": 80,
+            "Height": 32,
+            "RelativeFilename": "Rect_Button_Pressed.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "Alert_Mute_Button",
+            "X": 92,
+            "Y": 140,
+            "Width": 80,
+            "Height": 32,
+            "Pressed": "Rect_Button_Pressed.png",
+            "Released": "Rect_Button_Unpressed.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "Localize_Button",
+            "X": 309,
+            "Y": 140,
+            "Width": 80,
+            "Height": 32,
+            "Pressed": "Rect_Button_Pressed.png",
+            "Released": "Rect_Button_Unpressed.png"
+          },
+          {
+            "Type": "Container",
+            "Name": "Alarm_Mute_Indicator_Textbox_1_1_1",
+            "X": 283,
+            "Y": 117,
+            "Width": 129,
+            "Height": 20,
+            "Components": [
+              {
+                "Type": "BoxWithBorder",
+                "Name": "AnomalyDetection_Border_1_1_1_1",
+                "Y": 3,
+                "Width": 129,
+                "Height": 17,
+                "BorderColor": {
+                  "Red": 237,
+                  "Green": 102,
+                  "Blue": 99
+                },
+                "BorderSize": 3
+              },
+              {
+                "Type": "TextArea",
+                "Name": "AnomalyDetection_Text_1_1_1",
+                "X": 15,
+                "Y": 5,
+                "Width": 98,
+                "Height": 13,
+                "TextId": "__SingleUse_V6ST",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "AutoSize": true
+              }
+            ]
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Set_Volume_Slider",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "Volume_Slider"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "set_volume_slider"
+            }
+          },
+          {
+            "InteractionName": "Anomaly_Alert_Handler",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 87
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "update_anomaly_alert"
+            }
+          },
+          {
+            "InteractionName": "Switch_To_Anomaly_Screen",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "Localize_Button"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "North",
+              "ActionComponent": "Localize_Anomaly"
+            }
+          },
+          {
+            "InteractionName": "Toggle_Voice",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "Voice_Toggle_Button"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "toggle_voice"
+            }
+          },
+          {
+            "InteractionName": "Alert_Mute_Pressed",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "Alert_Mute_Button"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "alert_mute_pressed"
+            }
+          },
+          {
+            "InteractionName": "Set_Volume_Rotary_Encoder",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 88
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "set_volume_encoder"
+            }
+          },
+          {
+            "InteractionName": "Toggle_Voice_SW",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 89
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "toggle_voice"
+            }
+          },
+          {
+            "InteractionName": "Alert_Mute_Pressed_Button",
+            "Trigger": {
+              "Type": "TriggerPhysicalButtonClicked",
+              "ButtonKey": 90
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "alert_mute_pressed"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "Localize_Anomaly",
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "Main_Background",
+            "Width": 480,
+            "Height": 272,
+            "RelativeFilename": "Background_1.png"
+          },
+          {
+            "Type": "Container",
+            "Name": "Button_Panel",
+            "X": 10,
+            "Y": 187,
+            "Width": 460,
+            "Height": 77,
+            "Components": [
+              {
+                "Type": "BoxWithBorder",
+                "Name": "Button_Panel_Background",
+                "Width": 460,
+                "Height": 77,
+                "Color": {
+                  "Red": 78,
+                  "Green": 137,
+                  "Blue": 174
+                },
+                "BorderColor": {
+                  "Red": 237,
+                  "Green": 102,
+                  "Blue": 99
+                },
+                "BorderSize": 5
+              },
+              {
+                "Type": "Container",
+                "Name": "Anomaly_Detection_Panel",
+                "X": 5,
+                "Y": 4,
+                "Width": 450,
+                "Height": 73,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "Anomaly_Detection_Background",
+                    "Y": 1,
+                    "Width": 450,
+                    "Height": 67,
+                    "Color": {
+                      "Red": 67,
+                      "Green": 101,
+                      "Blue": 139
+                    },
+                    "BorderSize": 2
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "Alarm_Mute_Indicator_Textbox_1_1_1",
+                "X": 142,
+                "Y": 47,
+                "Width": 177,
+                "Height": 20,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "AnomalyDetection_Border_1_1_1_1",
+                    "Y": 3,
+                    "Width": 177,
+                    "Height": 17,
+                    "BorderColor": {
+                      "Red": 237,
+                      "Green": 102,
+                      "Blue": 99
+                    },
+                    "BorderSize": 3
+                  },
+                  {
+                    "Type": "TextArea",
+                    "Name": "AnomalyDetection_Text",
+                    "X": 7,
+                    "Y": 5,
+                    "Width": 162,
+                    "Height": 13,
+                    "TextId": "__SingleUse_6CIV",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "AutoSize": true
+                  }
+                ]
+              },
+              {
+                "Type": "Button",
+                "Name": "Localize_Button",
+                "X": 188,
+                "Y": 15,
+                "Width": 80,
+                "Height": 32,
+                "Pressed": "Rect_Button_Pressed.png",
+                "Released": "Rect_Button_Unpressed.png"
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "Message_panel",
+            "X": 10,
+            "Y": 8,
+            "Width": 460,
+            "Height": 194,
+            "Components": [
+              {
+                "Type": "BoxWithBorder",
+                "Name": "Button_Panel_Background_1",
+                "Width": 460,
+                "Height": 183,
+                "Color": {
+                  "Red": 78,
+                  "Green": 137,
+                  "Blue": 174
+                },
+                "BorderColor": {
+                  "Red": 237,
+                  "Green": 102,
+                  "Blue": 99
+                },
+                "BorderSize": 5
+              },
+              {
+                "Type": "Container",
+                "Name": "Message_Board_Panel_1",
+                "X": 5,
+                "Y": 4,
+                "Width": 450,
+                "Height": 175,
+                "Components": [
+                  {
+                    "Type": "BoxWithBorder",
+                    "Name": "MessageBoard_Background_1",
+                    "Width": 450,
+                    "Height": 175,
+                    "Color": {
+                      "Red": 67,
+                      "Green": 101,
+                      "Blue": 139
+                    },
+                    "BorderSize": 2
+                  },
+                  {
+                    "Type": "Image",
+                    "Name": "Directional_Vector",
+                    "X": 95,
+                    "Y": 9,
+                    "Width": 256,
+                    "Height": 160,
+                    "RelativeFilename": "vector_image.png"
+                  },
+                  {
+                    "Type": "Container",
+                    "Name": "Message_Board_Textbox_1",
+                    "X": 167,
+                    "Width": 117,
+                    "Height": 20,
+                    "Components": [
+                      {
+                        "Type": "BoxWithBorder",
+                        "Name": "MessageBoard_Border_1_1",
+                        "Y": 3,
+                        "Width": 117,
+                        "Height": 17,
+                        "BorderColor": {
+                          "Red": 237,
+                          "Green": 102,
+                          "Blue": 99
+                        },
+                        "BorderSize": 3
+                      },
+                      {
+                        "Type": "TextArea",
+                        "Name": "MessageBoard_Text_1",
+                        "X": 4,
+                        "Y": 5,
+                        "Width": 104,
+                        "Height": 13,
+                        "TextId": "__SingleUse_HV8G",
+                        "TextRotation": "0",
+                        "Color": {
+                          "Red": 255,
+                          "Green": 255,
+                          "Blue": 255
+                        },
+                        "AutoSize": true
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerScreenEntered"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "function1"
+            }
+          },
+          {
+            "InteractionName": "Switch_Main_Screen",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "Localize_Button"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "South",
+              "ActionComponent": "Main"
+            }
+          }
+        ]
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "Team_Sonus_GUI",
+    "Resolution": {
+      "Width": 480,
+      "Height": 272
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "Main",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      16
+    ],
+    "AvailableLCDs": {
+      "16": "LCD16bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 480,
+        "Height": 272
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project --project-file=../../Team_Sonus_GUI.ioc --platform=m7",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommandOverride": "make -f ../../gcc/Makefile clean && make -f ../../gcc/Makefile -j8",
+    "FlashTargetCommandOverride": "make -f ../../gcc/Makefile flash",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32H7"
+  },
+  "Version": "4.18.1",
+  "CreatedBy": "4.18.1"
+}

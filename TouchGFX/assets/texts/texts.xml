@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.18.0">
+  <Texts>
+    <Text Id="__SingleUse_P64J" TypographyId="Small" Alignment="Left" Direction="LTR">
+      <Translation Language="GB">Toggle</Translation>
+    </Text>
+    <Text Id="__SingleUse_2Q8N" TypographyId="Typography_00" Alignment="Left" Direction="LTR">
+      <Translation Language="GB">Voice Communication</Translation>
+    </Text>
+    <Text Id="__SingleUse_0Y28" TypographyId="Typography_00" Alignment="Left" Direction="LTR">
+      <Translation Language="GB">Message Board</Translation>
+    </Text>
+    <Text Id="__SingleUse_BBOL" TypographyId="Typography_00" Alignment="Center" Direction="LTR">
+      <Translation Language="GB">Anomaly Alert Mute</Translation>
+    </Text>
+    <Text Id="__SingleUse_V6ST" TypographyId="Typography_00" Alignment="Center" Direction="LTR">
+      <Translation Language="GB">Localize Anomaly</Translation>
+    </Text>
+    <Text Id="__SingleUse_LNSV" TypographyId="Typography_02" Alignment="Center" Direction="LTR">
+      <Translation Language="GB">&#10;Voice &#10;Comm&#10;On</Translation>
+    </Text>
+    <Text Id="__SingleUse_RLM0" TypographyId="Typography_02" Alignment="Center" Direction="LTR">
+      <Translation Language="GB">*******&#10;Alert &#10;Anomaly&#10;Detected&#10;*******</Translation>
+    </Text>
+    <Text Id="__SingleUse_6CIV" TypographyId="Typography_00" Alignment="Center" Direction="LTR">
+      <Translation Language="GB">Return to Main Control Menu</Translation>
+    </Text>
+    <Text Id="__SingleUse_HV8G" TypographyId="Typography_00" Alignment="Left" Direction="LTR">
+      <Translation Language="GB">Anomaly Direction</Translation>
+    </Text>
+    <Text Id="__SingleUse_F9M9" TypographyId="Small" Alignment="Center" Direction="LTR">
+      <Translation Language="GB">Volume &lt;&gt;%</Translation>
+    </Text>
+    <Text Id="__SingleUse_GO11" TypographyId="Typography_02" Alignment="Center" Direction="LTR">
+      <Translation Language="GB">&#10;Voice &#10;Comm&#10;Off</Translation>
+    </Text>
+    <Text Id="__SingleUse_RFKN" TypographyId="Typography_02" Alignment="Center" Direction="LTR">
+      <Translation Language="GB">&#10;Alert &#10;Anomaly&#10;Detected&#10;</Translation>
+    </Text>
+  </Texts>
+  <Typographies>
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" FallbackCharacter="?" />
+    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" FallbackCharacter="?" />
+    <Typography Id="Small" Font="verdanab.ttf" Size="8" Bpp="4" FallbackCharacter="?" WidgetWildcardCharacters="0123456789." />
+    <Typography Id="Typography_00" Font="verdanab.ttf" Size="10" Bpp="4" FallbackCharacter="?" />
+    <Typography Id="Typography_01" Font="verdana.ttf" Size="20" Bpp="4" FallbackCharacter="?" />
+    <Typography Id="Typography_02" Font="verdanab.ttf" Size="12" Bpp="4" FallbackCharacter="?" />
+  </Typographies>
+</TextDatabase>
