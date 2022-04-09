@@ -115,7 +115,7 @@ static const uint8_t FFT_DETECT_THRESHOLD_FALLING_COUNT = 10;
 static const uint8_t FFT_DETECT_THRESHOLD_MAX_COUNT = 24;
 
 // trigger threshold offset from the noise floor
-static float fft_trigger_threshold_offset_db = 3.0f;
+static volatile float fft_trigger_threshold_offset_db = 0.0f;
 
 // number of fft calcs used to define noise floor
 static const uint8_t FFT_REQUIRED_NOISE_FLOOR_SAMPLES = 40;
