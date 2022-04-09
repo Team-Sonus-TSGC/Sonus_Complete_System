@@ -12,9 +12,6 @@ Model::Model() : modelListener(0)
 
 }
 
-bool b1Status = false;
-bool b1Filter = false;
-
 bool swStatus = false;
 bool swFilter = false;
 
@@ -63,7 +60,7 @@ void Model::tick()
   {
     int16_t encoderDelta = TIM4->CNT - encoderCount;
     encoderCount = TIM4->CNT;
-    currentDelta = encoderDelta;
+    currentDelta = encoderDelta * 2;
 
     static_cast<FrontendApplication*>(Application::getInstance())->handleKeyEvent(88);
   }
