@@ -10,46 +10,53 @@
 // alarm buffer length required for n integer cycles of 750 Hz
 #define ALARM_BUFFER_LENGTH 64
 
-const float FREQ_MIN = 200;
-const float FREQ_MAX = 8000;
+static const float FREQ_MIN = 200;
+static const float FREQ_MAX = 8000;
 
 // maximum multiplier for voice volume
-const float VOICE_VOLUME_MAX = 16.0f;
+static const float VOICE_VOLUME_MAX = 16.0f;
 
 // normalized voice volume variable
-float voice_volume_normalized = 0.5f;
-float voice_volume_log_approx;
+static float voice_volume_normalized = 0.5f;
+static float voice_volume_log_approx;
 
 // buffer for alarm tone, holds an integer number of cycles to avoid discontinuities
-int16_t alarm_tone_data_buffer[ALARM_BUFFER_LENGTH];
+static int16_t alarm_tone_data_buffer[ALARM_BUFFER_LENGTH];
 
 // decoupled index for alarm tone buffer so alarm is continuous across iterations
-uint16_t alarm_tone_buffer_index = 0;
+static uint16_t alarm_tone_buffer_index = 0;
 
 // separate sonification index so sonification is not coupled to
 //   the passed sample chunks, sonification is continuous throughout time
-uint32_t sonification_index_n = 0;
+static uint32_t sonification_index_n = 0;
 
 // boolean flag used to gracefully end sonification in event that the anomaly ends
 //   and the sonification wave is not yet zero -> avoid pop on output
-boolean_t sonification_active = FALSE;
+static boolean_t sonification_active = FALSE;
 
 // normalized sonification frequency from DSP
-volatile float sonification_frequency_normalized = 0.5f;
+static volatile float sonification_frequency_normalized = 0.5f;
 
 // Hz sonification frequency determined from normalized frequency and
 //    supported output frequency range
-float sonification_frequency_current = 1000.0f;
-float sonification_frequency_new = 1000.0f;
-float sonification_magnitude = -100.0f;
+static float sonification_frequency_current = 1000.0f;
+static float sonification_frequency_new = 1000.0f;
+static float sonification_magnitude = -100.0f;
+
+// current/previous used only to avoid discontinuities when changing frequencies
+//  if a frequency change happens, it must occur when the speaker has positive inertia, i.e. it is
+//  traveling in the same direction as it should for the next sample at the new frequency,
+//  a discontinuity is heard otherwise
+static int16_t sonification_sample_current;
+static int16_t sonification_sample_previous;
 
 // boolean flags to detect change in alarm state
-boolean_t alarm_state_current = FALSE;
-boolean_t alarm_state_previous = FALSE;
+static boolean_t alarm_state_current = FALSE;
+static boolean_t alarm_state_previous = FALSE;
 
 // counter used for alarm on/off cycle
-uint32_t alarm_counter = 0;
-boolean_t alarm_mute = FALSE;
+static uint32_t alarm_counter = 0;
+static boolean_t alarm_mute = FALSE;
 
 // HAL defined variable
 extern UART_HandleTypeDef huart3;
@@ -148,10 +155,9 @@ void playAudio( int16_t *audio_samples, uint16_t audio_sample_length )
     sonification_active = TRUE;
 
     // get normalized sonification frequency from DSP
-    // TODO - if frequency changes, continue previous frequency until sonification value
+    // if frequency changes, continue previous frequency until sonification value
     //   is at or close to zero to avoid output pop -> 400 Hz from discontinuity
 
-    // commented out to allow live updates in debug
     sonification_frequency_normalized = dspGetAnomalyFrequencyNormalized( );
 
     // ** current and desired sonification_frequency variables? -> if current != desired,
@@ -169,13 +175,6 @@ void playAudio( int16_t *audio_samples, uint16_t audio_sample_length )
                                        / 400.0f;
       sonification_magnitude = (sonification_magnitude * 399.0f / 400.0f) + dspGetAnomalyMagnitude( ) / 400.0f;
     }
-
-    // current/previous used only to avoid discontinuities when changing frequencies
-    //  if a frequency change happens, it must occur when the speaker has positive inertia, i.e. it is
-    //  traveling in the same direction as it should for the next sample at the new frequency,
-    //  a discontinuity is heard otherwise
-    int16_t sonification_sample_current = 0;
-    int16_t sonification_sample_previous = 0;
 
     // for each sample in given array
     for ( int index = 0; index < audio_sample_length; index++ )
