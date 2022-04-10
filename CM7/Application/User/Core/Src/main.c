@@ -641,6 +641,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(D3_ImprGnD_GPIO_Port, &GPIO_InitStruct);
 
+  // PE3, used for alarm LEDs
+  // Use hal to set things
+  GPIO_InitStruct.Pin = GPIO_PIN_3;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+
+  // PH15, also used for alarm LEDs
+  GPIO_InitStruct.Pin = GPIO_PIN_15;
+  HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
 }
 
 /* USER CODE BEGIN 4 */
