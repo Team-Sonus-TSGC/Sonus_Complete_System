@@ -130,10 +130,10 @@ int main(void)
   /* Wait until CPU2 boots and enters in stop mode or timeout*/
   timeout = 0xFFFF;
   while((__HAL_RCC_GET_FLAG(RCC_FLAG_D2CKRDY) != RESET) && (timeout-- > 0));
-  //if ( timeout < 0 )
-  //{
-  //Error_Handler();
-  //}
+  if ( timeout < 0 )
+  {
+    Error_Handler();
+  }
 /* USER CODE END Boot_Mode_Sequence_1 */
   /* MCU Configuration--------------------------------------------------------*/
 
