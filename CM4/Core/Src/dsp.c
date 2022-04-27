@@ -61,7 +61,7 @@
 #define FFT_DETECT_BIN_ACTIVE_FLAG (1 << 7)
 
 // skip n data sets, then transmit the next set
-#define USART_SKIP_N_DATA_SETS 10
+#define USART_SKIP_N_DATA_SETS 5
 
 #define OUTPUT_AUDIO_SAMPLE_CHUNK_SIZE 40
 #define OUTPUT_AUDIO_FIR_TAPS   60
@@ -115,7 +115,7 @@ static const uint8_t FFT_DETECT_THRESHOLD_FALLING_COUNT = 10;
 static const uint8_t FFT_DETECT_THRESHOLD_MAX_COUNT = 24;
 
 // trigger threshold offset from the noise floor
-static volatile float fft_trigger_threshold_offset_db = 0.0f;
+static volatile float fft_trigger_threshold_offset_db = 3.0f;
 
 // number of fft calcs used to define noise floor
 static const uint8_t FFT_REQUIRED_NOISE_FLOOR_SAMPLES = 40;
@@ -254,7 +254,7 @@ float dspGetAnomalyFrequency( void )
   return anomaly_frequency;
 }
 
-// TODO - defines for ultrasonic range
+// get normalized 0.0 to 1.0 anomaly frequency, within supported ultrasonic band
 float dspGetAnomalyFrequencyNormalized( void )
 {
   return anomaly_frequency_normalized;
@@ -446,8 +446,6 @@ void ADC3DMAHalfTransferIRQCallback(DMA_HandleTypeDef *_hdma)
   }
 
   setUserLED1State(TRUE);
-  // TODO - Ensure ADC1 DMA consistently reaches this point first
-  // Add flag for each and handle after whichever is second?
 
   // check FFT skip counter, copy samples for FFT if zero
   if ( ++fft_op_skip_counter == FFT_OP_ON_COUNT )
@@ -889,11 +887,13 @@ static void anomalyDetectionLogic( void )
       }
     }
 
+    // update ultrasonic POIs for this channel
     channel_is_active_anomaly[channel] = _channel_active;
     fft_channel_magnitude_db[channel] = _largest_magnitude_db;
     fft_channel_magnitude_bin[channel] = _largest_magnitude_bin;
   }
 
+  // increment previous/current detect state
   anomaly_detect_state_previous = anomaly_detect_state_current;
   anomaly_detect_state_current = _anomaly_detected;
 
@@ -948,6 +948,7 @@ static void anomalyUpdateCharacteristics( void )
   float _sum = 0.0f;
   uint8_t _active_channels = 0;
 
+  // sum of frequencies of active channels
   for ( int _channel = 0; _channel < NUM_MICROPHONE_CHANNELS; _channel++ )
   {
     if ( channel_is_active_anomaly[_channel] )
@@ -957,6 +958,7 @@ static void anomalyUpdateCharacteristics( void )
     }
   }
 
+  // if none active, default frequency
   if ( _active_channels == 0 )
   {
     anomaly_frequency = 20000.0f;
@@ -981,7 +983,7 @@ static void anomalyUpdateCharacteristics( void )
 
   anomaly_magnitude = _largest;
 
-  // update IPC
+  // update inter-processor communication (shared RAM region)
   IPCSetAnomalyDetectState( anomaly_detect_state_current );
   IPCSetAnomalyFrequency( anomaly_frequency );
   IPCSetAnomalyMagnitudedB( anomaly_magnitude );
